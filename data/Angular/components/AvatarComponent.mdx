@@ -1,0 +1,138 @@
+The `Avatar` component displays the provided image, with fallback to the first letter of the optional name input.
+
+## Basic Usage
+
+A typical use case for the `Avatar` component would be to use in your custom components that will completely override a message component, or similar.
+
+**Example 1** - a basic example:
+
+```typescript
+@Component({
+  selector: "app-custom-message",
+  template: `
+    <stream-avatar [imageUrl]="imageUrl" [name]="name"></stream-avatar>
+    <!-- Other parts of the custom message component -->
+  `,
+})
+export class CustomMessageComponent {
+  imageUrl =
+    "https://pbs.twimg.com/profile_images/897621870069112832/dFGq6aiE_400x400.jpg";
+  name = "Roy";
+}
+```
+
+## Customization
+
+You can provide your own avatar component by the [`CustomTemplatesService`](../services/CustomTemplatesService.mdx)
+
+[//]: # "Start of generated content"
+## Inputs and outputs 
+
+
+### name
+
+• **name**: `undefined` \| `string`
+
+An optional name of the image, used for fallback image or image title (if `imageUrl` is provided)
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:30](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L30)
+
+___
+
+### imageUrl
+
+• **imageUrl**: `undefined` \| `string`
+
+The URL of the image to be displayed. If the image can't be displayed the first letter of the name input is displayed.
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:34](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L34)
+
+___
+
+### size
+
+• **size**: `number` = `32`
+
+The size in pixels of the avatar image.
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:38](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L38)
+
+___
+
+### location
+
+• **location**: `undefined` \| `AvatarLocation`
+
+The location the avatar will be displayed in
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:42](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L42)
+
+___
+
+### channel
+
+• `Optional` **channel**: `Channel`<`DefaultStreamChatGenerics`\>
+
+The channel the avatar belongs to (if avatar of a channel is displayed)
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:46](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L46)
+
+___
+
+### user
+
+• `Optional` **user**: `User`<`DefaultStreamChatGenerics`\>
+
+The user the avatar belongs to (if avatar of a user is displayed)
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:50](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L50)
+
+___
+
+### type
+
+• **type**: `undefined` \| `AvatarType`
+
+The type of the avatar: channel if channel avatar is displayed, user if user avatar is displayed
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:54](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L54)
+
+___
+
+### showOnlineIndicator
+
+• **showOnlineIndicator**: `boolean` = `true`
+
+If a channel avatar is displayed, and if the channel has exactly two members a green dot is displayed if the other member is online. Set this flag to `false` to turn off this behavior.
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:58](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L58)
+
+___
+
+### initialsType
+
+• **initialsType**: ``"first-letter-of-first-word"`` \| ``"first-letter-of-each-word"`` = `'first-letter-of-first-word'`
+
+If channel/user image isn't provided the initials of the name of the channel/user is shown instead, you can choose how the initals should be computed
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:62](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L62)
+
+[//]: # "End of generated content"

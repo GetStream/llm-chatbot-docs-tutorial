@@ -1,0 +1,160 @@
+import MessagesWithGroupingsScreenhot from "../assets/messages-with-grouping-screenshot.png";
+import MessagesWithoutGroupingsScreenhot from "../assets/messages-without-groups-screenshot.png";
+
+The `MessageList` component renders a scroll-able list of messages.
+
+The `MessageList` displays messages using pagination, new messages are loaded when the user scrolls to the top of the list.
+
+## Customization
+
+### Custom message component
+
+If you want to customize how messages are displayed in the list, head over to the [`Message` component's page](../../components/MessageComponent/#customization).
+
+### Date separator
+
+- The component provides the [`displayDateSeparator`](#displaydateseparator) and [`dateSeparatorTextPos`](#dateseparatortextpos) inputs for configuring the date separator's behavior.
+- You can customize the displayed date format by providing your own [date parser](../../services/DateParserService/#customdateparser).
+- If you want to provide your own date separator UI, provide that to the [`CustomTemplatesService`](../../services/CustomTemplatesService/#dateseparatortemplate).
+
+### Custom message list
+
+The message list contains a lot of low-level logic related to scrolling, we don't advise to create your own message list component, however it's possible: see [our customization guide](../concepts/customization.mdx) on how to provide your own message list component.
+
+:::note
+If you want to create your own message list, you can use the [`ChannelService`](../services/ChannelService.mdx) to receive the necessary messages and interact with the Stream API.
+
+Other building blocks, that you might find useful:
+
+### Message group styles
+
+Message group styles makes the message list more readable, by grouping messages from the same author on the same day together. The grouping assigns a CSS class to every message, if you want to take advantage of this functionality, you can use the [`getGroupStyles`](https://github.com/GetStream/stream-chat-angular/tree/master/projects/stream-chat-angular/src/lib/message-list/group-styles.ts) utility function.
+
+**Example 1** - Messages with group styles
+
+<img src={MessagesWithGroupingsScreenhot} width="500" />
+
+**Example 2** - Messages without group styles
+
+<img src={MessagesWithoutGroupingsScreenhot} width="500" />
+
+:::
+
+**Example 2** - Using a custom message component
+
+If you only want to customize the messages (not the whole list), see the [message customization guide](./MessageComponent.mdx/#customization).
+
+[//]: # "Start of generated content"
+## Inputs and outputs 
+
+
+### mode
+
+• **mode**: ``"thread"`` \| ``"main"`` = `'main'`
+
+Determines if the message list should display channel messages or [thread messages](https://getstream.io/chat/docs/javascript/threads/?language=javascript).
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:48](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L48)
+
+___
+
+### direction
+
+• **direction**: ``"bottom-to-top"`` \| ``"top-to-bottom"`` = `'bottom-to-top'`
+
+The direction of the messages in the list, `bottom-to-top` means newest message is at the bottom of the message list and users scroll upwards to load older messages
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:52](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L52)
+
+___
+
+### messageOptionsTrigger
+
+• **messageOptionsTrigger**: ``"message-row"`` \| ``"message-bubble"`` = `'message-row'`
+
+Determines what triggers the appearance of the message options: by default you can hover (click on mobile) anywhere in the row of the message (`message-row` option), or you can set `message-bubble`, in that case only a hover (click on mobile) in the message bubble will trigger the options to appear.
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:56](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L56)
+
+___
+
+### hideJumpToLatestButtonDuringScroll
+
+• **hideJumpToLatestButtonDuringScroll**: `boolean` = `false`
+
+You can hide the "jump to latest" button while scrolling. A potential use-case for this input would be to [workaround a known issue on iOS Safar](https://github.com/GetStream/stream-chat-angular/issues/418)
+
+**`deprecated`** This scroll issue has been resolved, no need to use this  workaround anymore.
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:63](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L63)
+
+___
+
+### customMessageActions
+
+• **customMessageActions**: `CustomMessageActionItem`<`any`\>[] = `[]`
+
+A list of custom message actions to be displayed in the message action box
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:67](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L67)
+
+___
+
+### displayDateSeparator
+
+• **displayDateSeparator**: `boolean` = `true`
+
+If `true` date separators will be displayed
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:71](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L71)
+
+___
+
+### dateSeparatorTextPos
+
+• **dateSeparatorTextPos**: ``"center"`` \| ``"right"`` \| ``"left"`` = `'center'`
+
+If date separators are displayed, you can set the horizontal position of the date text.
+If `openMessageListAt` is `last-read-message` it will also set the text position of the new messages indicator.
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:76](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L76)
+
+___
+
+### openMessageListAt
+
+• **openMessageListAt**: ``"last-message"`` \| ``"last-read-message"`` = `'last-message'`
+
+`last-message` option will open the message list at the last message, `last-read-message` will open the list at the last unread message. This option only works if mode is `main`.
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:80](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L80)
+
+___
+
+### displayLoadingIndicator
+
+• **displayLoadingIndicator**: `boolean` = `true`
+
+You can turn on and off the loading indicator that signals to users that more messages are being loaded to the message list
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:85](https://github.com/GetStream/stream-chat-angular/blob/5d2a1df/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L85)
+
+[//]: # "End of generated content"
