@@ -97,7 +97,6 @@ def load_text_from_docs(sdk):
             for x in lists:
                 text_elements.append(" ".join([el.get_text() for el in x]))
 
-        break
     return text_elements
 
 
