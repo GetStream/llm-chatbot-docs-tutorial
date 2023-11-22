@@ -1,3 +1,5 @@
+![Create An LLM-Powered Chatbot-2400x1350](https://github.com/GetStream/llm-chatbot-docs-tutorial/assets/12433593/1293946f-9be6-4839-a1ae-1f5faff25efc)
+
 # Create LLM-powered Chatbot For Your Documentation
 
 This repository contains the code for the blog post originally published on the Stream blog [here](https://www.getstream.io/blog/llm-chatbot-doc).
